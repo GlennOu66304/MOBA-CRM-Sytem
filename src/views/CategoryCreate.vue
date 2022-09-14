@@ -126,7 +126,7 @@ export default {
     },
     async loadParents() {
       await this.$axios
-        .get(`${process.env.VUE_APP_API}/api/category`)
+        .get(`${process.env.VUE_APP_API}/api/category/all`)
         .then((res) => {
           // console.log(res);
           this.parents = res.data;
