@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     async loadData() {
-      await this.$axios.get("/api/hero").then((res) => {
+      await this.$axios.get(`${process.env.VUE_APP_AP}/api/hero`).then((res) => {
         // console.log(res.data);
         this.tableData = res.data;
         // this.filterTableData = res.data;
@@ -90,7 +90,7 @@ export default {
         type: "warning", // text color in the middle
       })
         .then(async () => {
-          await this.$axios.delete(`/api/hero/${id}`).then((res) => {
+          await this.$axios.delete(`${process.env.VUE_APP_AP}/api/hero/${id}`).then((res) => {
             //  console.log(res.data.meta)
             if (res.data.success != true) {
               this.$message.error("删除失败");

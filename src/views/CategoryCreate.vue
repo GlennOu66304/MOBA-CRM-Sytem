@@ -71,7 +71,7 @@ export default {
   methods: {
     async loadData2() {
       await this.$axios
-        .get(`/api/category/${this.id}`)
+        .get(`${process.env.VUE_APP_AP}/api/category/${this.id}`)
         .then((res) => {
           console.log(res);
           this.createForm.name = res.data.name;
@@ -93,7 +93,7 @@ export default {
             return false;
           }
           await this.$axios.put(
-            `/api/category/${this.id}`,
+            `${process.env.VUE_APP_AP}/api/category/${this.id}`,
             body
           );
            this.loadData2()
@@ -108,7 +108,7 @@ export default {
           if (!valid) {
             return false;
           }
-          await this.$axios.post("/api/category", body);
+          await this.$axios.post(`${process.env.VUE_APP_AP}/api/category`, body);
            this.loadData2()
         });
       }
@@ -122,11 +122,11 @@ export default {
         message: "保存成功",
         type: "success",
       });
-      this.$router.push("/category/list");
+      this.$router.push(`/category/list`);
     },
     async loadParents() {
       await this.$axios
-        .get("/api/category")
+        .get(`${process.env.VUE_APP_AP}/api/category`)
         .then((res) => {
           // console.log(res);
           this.parents = res.data;

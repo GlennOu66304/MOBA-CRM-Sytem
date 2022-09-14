@@ -60,7 +60,7 @@ export default {
   methods: {
     async loadData2() {
       await this.$axios
-        .get(`/api/admin/${this.id}`)
+        .get(`${process.env.VUE_APP_AP}/api/admin/${this.id}`)
         .then((res) => {
           console.log(res);
           this.createForm.username = res.data.username;
@@ -80,7 +80,7 @@ export default {
             return false;
           }
           await this.$axios.put(
-            `/api/admin/${this.id}`,
+            `${process.env.VUE_APP_AP}/api/admin/${this.id}`,
             body
           );
           
@@ -92,7 +92,7 @@ export default {
           if (!valid) {
             return false;
           }
-          await this.$axios.post("/api/admin", body);
+          await this.$axios.post(`${process.env.VUE_APP_AP}/api/admin`, body);
           
         });
       }

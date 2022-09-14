@@ -93,7 +93,7 @@ export default {
 
         // desctructure content
         const { data } = await axios.post(
-          "http://localhost:8800/api/adminauth/login",
+          `${process.env.VUE_APP_AP}/api/adminauth/login`,
           this.loginForm
         );
 

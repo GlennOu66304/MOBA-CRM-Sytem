@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     async loadData2() {
-      await this.$axios.get(`/api/item/${this.id}`).then((res) => {
+      await this.$axios.get(`${process.env.VUE_APP_AP}/api/item/${this.id}`).then((res) => {
         this.createForm.name = res.data.name;
         this.createForm.icon = res.data.icon;
       });
@@ -89,7 +89,7 @@ export default {
           if (!valid) {
             return false;
           }
-          await this.$axios.put(`/api/item/${this.id}`, body);
+          await this.$axios.put(`${process.env.VUE_APP_AP}/api/item/${this.id}`, body);
         });
       } else {
         this.$refs.createFormRef.validate(async (valid) => {
@@ -101,7 +101,7 @@ export default {
           if (!valid) {
             return false;
           }
-          await this.$axios.post("/api/item", body);
+          await this.$axios.post(`${process.env.VUE_APP_AP}/api/item`, body);
         });
       }
       // if (!data) {
@@ -114,7 +114,7 @@ export default {
         message: "保存成功",
         type: "success",
       });
-      this.$router.push("/item/list");
+      this.$router.push(`/item/list`);
     },
 
     handleAvatarSuccess(res) {
