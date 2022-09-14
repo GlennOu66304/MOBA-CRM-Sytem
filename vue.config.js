@@ -5,17 +5,17 @@
 // https://forum.vuejs.org/t/devserver-proxy-in-vue-config-js-not-working/87316/5
 module.exports = {
   configureWebpack: {
-    devServer: {
-      proxy: {
-        "^/api": {
-          target: "http://localhost:8800",
-          ws: true,
-          changrigin: true,
-          pathRewrite: {
-            "^/api": "/api",
-          },
-        },
-      },
-    },
+    // devServer: {
+    //   proxy: {
+    //     "^/api": {
+    //       target: "http://localhost:8800",
+    //       ws: true,
+    //       changrigin: true,
+    //       pathRewrite: {
+    //         "^/api": "/api",
+    //       },
+    //     },
+    //   },
+    // },
   },
 };
