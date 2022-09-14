@@ -68,7 +68,7 @@ export default {
   methods: {
     async loadData() {
       await this.$axios
-        .get(`${process.env.VUE_APP_AP}/api/category`)
+        .get(`${process.env.VUE_APP_API}/api/category`)
         .then((res) => {
           // console.log(res.data);
           this.tableData = res.data;
@@ -91,7 +91,7 @@ export default {
       })
         .then(async () => {
           await this.$axios
-            .delete(`${process.env.VUE_APP_AP}/api/category/${id}`)
+            .delete(`${process.env.VUE_APP_API}/api/category/${id}`)
             .then((res) => {
               //  console.log(res.data.meta)
               if (res.data.success != true) {

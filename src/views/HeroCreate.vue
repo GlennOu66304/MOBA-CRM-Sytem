@@ -239,19 +239,19 @@ export default {
   },
   methods: {
     async loadData2() {
-      await this.$axios.get(`${process.env.VUE_APP_AP}/api/hero/${this.id}`).then((res) => {
+      await this.$axios.get(`${process.env.VUE_APP_API}/api/hero/${this.id}`).then((res) => {
         // undefined fix
         this.createForm = Object.assign({}, this.createForm, res.data);
       });
     },
     async loadCategory() {
-      await this.$axios.get(`${process.env.VUE_APP_AP}/api/category`).then((res) => {
+      await this.$axios.get(`${process.env.VUE_APP_API}/api/category`).then((res) => {
         // console.log(res);
         this.categories = res.data;
       });
     },
     async loadItems() {
-      await this.$axios.get(`${process.env.VUE_APP_AP}/api/item`).then((res) => {
+      await this.$axios.get(`${process.env.VUE_APP_API}/api/item`).then((res) => {
         // console.log(res);
         this.items = res.data;
       });
@@ -269,7 +269,7 @@ export default {
           if (!valid) {
             return false;
           }
-          await this.$axios.put(`${process.env.VUE_APP_AP}/api/hero/${this.id}`, body);
+          await this.$axios.put(`${process.env.VUE_APP_API}/api/hero/${this.id}`, body);
         });
       } else {
         this.$refs.createFormRef.validate(async (valid) => {
@@ -278,7 +278,7 @@ export default {
           if (!valid) {
             return false;
           }
-          await this.$axios.post(`${process.env.VUE_APP_AP}/api/hero`, body);
+          await this.$axios.post(`${process.env.VUE_APP_API}/api/hero`, body);
         });
       }
       // if (!data) {

@@ -69,8 +69,8 @@ export default {
           // rule filled the content
           {
             min: 3,
-            max: 6,
-            message: "用户密码长度要在3到6个字符",
+            max: 20,
+            message: "用户密码长度要在3到20个字符",
             trigger: "blur",
           },
         ],
@@ -93,7 +93,7 @@ export default {
 
         // desctructure content
         const { data } = await axios.post(
-          `${process.env.VUE_APP_AP}/api/adminauth/login`,
+          `${process.env.VUE_APP_APII}/api/adminauth/login`,
           this.loginForm
         );
 

@@ -82,7 +82,7 @@ export default {
         type: "warning", // text color in the middle
       })
         .then(async () => {
-          await this.$axios.delete(`${process.env.VUE_APP_API}/api/ad/${id}`).then((res) => {
+          await this.$axios.delete(`${process.env.VUE_APP_APII}/api/ad/${id}`).then((res) => {
             //  console.log(res.data.meta)
             if (res.data.success != true) {
               this.$message.error("删除失败");

@@ -148,7 +148,7 @@ export default {
 
     async loadData() {
       await this.$axios
-        .get(`${process.env.VUE_APP_AP}/api/users`, { params: this.queryInfo })
+        .get(`${process.env.VUE_APP_API}/api/users`, { params: this.queryInfo })
         .then((res) => {
           console.log(res.data);
           this.userList = res.data.data.users;

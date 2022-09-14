@@ -84,13 +84,13 @@ export default {
   },
   methods: {
     async loadCategory() {
-      await this.$axios.get(`${process.env.VUE_APP_AP}/api/category`).then((res) => {
+      await this.$axios.get(`${process.env.VUE_APP_API}/api/category`).then((res) => {
         // console.log(res);
         this.parents = res.data;
       });
     },
     async loadData2() {
-      await this.$axios.get(`${process.env.VUE_APP_AP}/api/article/${this.id}`).then((res) => {
+      await this.$axios.get(`${process.env.VUE_APP_API}/api/article/${this.id}`).then((res) => {
         this.createForm = res.data;
       });
     },
@@ -105,7 +105,7 @@ export default {
           if (!valid) {
             return false;
           }
-          await this.$axios.put(`${process.env.VUE_APP_AP}/api/article/${this.id}`, body);
+          await this.$axios.put(`${process.env.VUE_APP_API}/api/article/${this.id}`, body);
         });
       } else {
         this.$refs.createFormRef.validate(async (valid) => {
@@ -114,7 +114,7 @@ export default {
           if (!valid) {
             return false;
           }
-          await this.$axios.post(`${process.env.VUE_APP_AP}/api/article`, body);
+          await this.$axios.post(`${process.env.VUE_APP_API}/api/article`, body);
         });
       }
       // if (!data) {
@@ -132,7 +132,7 @@ export default {
     async handleImageAdded(file, Editor, cursorLocation, resetUploader) {
       var formData = new FormData();
       formData.append("file", file);
-      const res = await this.$axios.post(`${process.env.VUE_APP_AP}/api/article/upload`, formData);
+      const res = await this.$axios.post(`${process.env.VUE_APP_API}/api/article/upload`, formData);
       Editor.insertEmbed(cursorLocation, "image", res.data.url);
       resetUploader();
     },
