@@ -38,6 +38,8 @@
           :collapse="isCollapse"
           :collapse-transition="false"
           :unique-opened="true"
+          :default-active="$route.path"
+          @select="handleSelect"
         >
           <!-- group 1 -->
           <el-submenu
@@ -112,6 +114,12 @@ export default {
     logout() {
       window.sessionStorage.clear();
       this.$router.push("/");
+    },
+
+// vue使用element-ui，页面刷新，导航栏选中问题
+// https://blog.csdn.net/weixin_43953518/article/details/115176265
+    handleSelect(data) {
+      this.$router.push({ path: data });
     },
   },
 };

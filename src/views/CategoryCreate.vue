@@ -109,14 +109,10 @@ export default {
             return false;
           }
           await this.$axios.post(`${process.env.VUE_APP_API}/api/category`, body);
-           this.loadData2()
+           
         });
       }
-      // if (!data) {
-      //   // console.log("login failed");
-      //   this.$message.error("保存失败");
-      //   return;
-      // }
+  
      
       this.$message({
         message: "保存成功",
